@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "React select component with list of options and values, event handler and label (optional)",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup --config"
   },
   "keywords": [],
   "author": "Katarzyna Zurek",
   "license": "ISC",
-  "dependencies": {
-    "react": "^18.2.0"
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "react": "^18.2.0",
+    "rollup": "^4.4.1"
   }
 }
