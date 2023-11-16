@@ -1,0 +1,15 @@
+{
+  "name": "myselectcomponent",
+  "version": "1.0.0",
+  "description": "React select component with list of options and values, event handler and label (optional)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Katarzyna Zurek",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
