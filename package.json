@@ -1,5 +1,5 @@
 {
-  "name": "react-select-component",
+  "name": "@kazu2233/react-select-component",
   "version": "1.0.0",
   "description": "React select component with list of options and values, event handler and label (optional)",
   "main": "index.js",
