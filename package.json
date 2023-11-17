@@ -10,6 +10,10 @@
   "scripts": {
     "build": "rollup --config"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kasia307584/react-select-component.git"
+  },
   "keywords": [
     "react",
     "select"
