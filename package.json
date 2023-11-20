@@ -1,8 +1,8 @@
 {
   "name": "@kazu2233/react-select-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React select component with list of options and values, event handler and label (optional)",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "type": "module",
   "peerDependencies": {
     "react": "^18.2.0"
