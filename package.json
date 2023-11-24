@@ -1,6 +1,6 @@
 {
   "name": "@kazu2233/react-select-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React select component with list of options and values, event handler and label (optional)",
   "main": "dist/bundle.js",
   "type": "module",
