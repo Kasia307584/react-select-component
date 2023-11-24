@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 /**
  * MySelect component for creating a customizable dropdown select input.
@@ -9,22 +10,26 @@ import React, { useState, useEffect } from "react";
  * @param {string} [props.label] - A label for the select input (optional).
  * @returns {JSX.Element} MySelect component.
  */
-export default function MySelect({ options, onChange, label }) {
+function MySelect({ options, onChange, label }) {
   // State to track the selected value
   const [selectedValue, setSelectValue] = useState("");
 
   /**
-   * Effect hook to notify the parent component when the selected value changes.
+   * Set the selected value and pass the selected option to the onChange prop.
+   * @param {Object} e - Event recevied.
    */
-  useEffect(() => {
+  const handleChange = (e) => {
+    // Set selected value to the value that was selected
+    setSelectValue(e.target.value);
+
     // Find the selected option based on the value
     const selectedOption = options.find(
-      (option) => option.value === selectedValue
+      (option) => option.value === e.target.value
     );
 
     // Call the onChange callback with the selected option
     onChange(selectedOption);
-  }, [selectedValue]);
+  };
 
   /**
    * Capitalize the first letter of a word.
@@ -46,7 +51,7 @@ export default function MySelect({ options, onChange, label }) {
         aria-label={`Select option`}
         className="form-select"
         value={selectedValue}
-        onChange={(e) => setSelectValue(e.target.value)}
+        onChange={handleChange}
       >
         {/* Generate options based on the provided array */}
         {options.map((option, index) => (
@@ -58,3 +63,18 @@ export default function MySelect({ options, onChange, label }) {
     </>
   );
 }
+
+// Define props types so if a prop is of incorret type an error is thrown in development mode
+MySelect.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
+};
+
+// Define the default prop value for the optionnal label
+MySelect.defaultProps = {
+  label: undefined,
+};
+
+// Export the component as default
+export default MySelect;

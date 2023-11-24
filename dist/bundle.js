@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var PropTypes = require('prop-types');
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -36,15 +37,19 @@ function MySelect(_ref) {
   const [selectedValue, setSelectValue] = React.useState("");
 
   /**
-   * Effect hook to notify the parent component when the selected value changes.
+   * Set the selected value and pass the selected option to the onChange prop.
+   * @param {Object} e - Event recevied.
    */
-  React.useEffect(() => {
+  const handleChange = e => {
+    // Set selected value to the value that was selected
+    setSelectValue(e.target.value);
+
     // Find the selected option based on the value
-    const selectedOption = options.find(option => option.value === selectedValue);
+    const selectedOption = options.find(option => option.value === e.target.value);
 
     // Call the onChange callback with the selected option
     onChange(selectedOption);
-  }, [selectedValue]);
+  };
 
   /**
    * Capitalize the first letter of a word.
@@ -63,11 +68,23 @@ function MySelect(_ref) {
     "aria-label": `Select option`,
     className: "form-select",
     value: selectedValue,
-    onChange: e => setSelectValue(e.target.value)
+    onChange: handleChange
   }), options.map((option, index) => /*#__PURE__*/React.createElement("option", {
     key: index,
     value: option.value
   }, option.label))));
 }
+
+// Define props types so if a prop is of incorret type an error is thrown in development mode
+MySelect.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string
+};
+
+// Define the default prop value for the optionnal label
+MySelect.defaultProps = {
+  label: undefined
+};
 
 module.exports = MySelect;
