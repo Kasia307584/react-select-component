@@ -1,3 +1,5 @@
 /src
 .babelrc
 rollup.config.js
+dist/__snapshots__
+dist/bundle.test.js
